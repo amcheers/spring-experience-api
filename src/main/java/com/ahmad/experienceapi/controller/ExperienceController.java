@@ -25,6 +25,11 @@ public class ExperienceController {
         return experienceService.findAll();
     }
 
+    @GetMapping("/{id}")
+    public Experience show(@PathVariable Long id) {
+        return experienceService.find(id);
+    }
+
     @PostMapping
     public Experience create(@Valid @RequestBody CreateExperienceRequest request) { return experienceService.create(request);}
 }
