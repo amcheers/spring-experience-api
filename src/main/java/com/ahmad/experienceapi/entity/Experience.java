@@ -2,6 +2,8 @@ package com.ahmad.experienceapi.entity;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
+
 @Entity
 public class Experience {
     @Id
@@ -15,6 +17,15 @@ public class Experience {
 
     private String price;
     private String locationText;
+
+    private LocalDateTime createdAt;
+
+    @PrePersist
+    public void prePersist() {
+        createdAt = LocalDateTime.now();
+    }
+
+    public LocalDateTime getCreatedAt() {return createdAt;}
 
     public Long getId() {
         return id;
