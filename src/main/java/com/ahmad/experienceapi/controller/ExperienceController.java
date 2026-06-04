@@ -32,4 +32,10 @@ public class ExperienceController {
 
     @PostMapping
     public Experience create(@Valid @RequestBody CreateExperienceRequest request) { return experienceService.create(request);}
+
+    @PutMapping("/{id}")
+    public Experience update(@PathVariable Long id, @Valid @RequestBody CreateExperienceRequest request) { return experienceService.update(request, id);}
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) { experienceService.delete(id); }
 }
