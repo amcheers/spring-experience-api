@@ -1,7 +1,9 @@
 package com.ahmad.experienceapi.controller;
 
+import com.ahmad.experienceapi.dto.CreateExperienceRequest;
 import com.ahmad.experienceapi.entity.Experience;
 import com.ahmad.experienceapi.service.ExperienceService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,4 +24,7 @@ public class ExperienceController {
     public List<Experience> index() {
         return experienceService.findAll();
     }
+
+    @PostMapping
+    public Experience create(@Valid @RequestBody CreateExperienceRequest request) { return experienceService.create(request);}
 }
