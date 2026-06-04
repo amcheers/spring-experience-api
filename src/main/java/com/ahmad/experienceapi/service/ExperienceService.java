@@ -43,4 +43,20 @@ public class ExperienceService {
 
         return experienceRepository.save(experience);
     }
+
+    public Experience update(CreateExperienceRequest request, Long id) {
+        Experience experience = find(id);
+
+        experience.setTitle(request.title);
+        experience.setDescription(request.description);
+        experience.setPrice(request.price);
+        experience.setLocationText(request.locationText);
+
+        return experienceRepository.save(experience);
+    }
+
+    public void delete(Long id) {
+        Experience experience = find(id);
+        experienceRepository.delete(experience);
+    }
 }
