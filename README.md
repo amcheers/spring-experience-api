@@ -2,6 +2,11 @@
 
 A Java/Spring Boot REST API for managing local experiences. This project demonstrates a clean CRUD API using Spring Boot, Spring Data JPA, H2, Bean Validation, lifecycle callbacks, and OpenAPI/Swagger documentation.
 
+## Live Demo
+
+API: https://spring-experience-api-production.up.railway.app/  
+Swagger: https://spring-experience-api-production.up.railway.app//swagger-ui/index.html
+
 ## Features
 
 - Create, read, update, and delete experiences
