@@ -2,6 +2,7 @@ package com.ahmad.experienceapi.service;
 
 import com.ahmad.experienceapi.dto.CreateExperienceRequest;
 import com.ahmad.experienceapi.entity.Experience;
+import com.ahmad.experienceapi.exception.ExperienceNotFoundException;
 import com.ahmad.experienceapi.repository.ExperienceRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.http.HttpStatus;
@@ -26,11 +27,7 @@ public class ExperienceService {
 
     public Experience find(Long id) {
         return experienceRepository.findById(id)
-                .orElseThrow(() ->
-                        new ResponseStatusException(
-                                HttpStatus.NOT_FOUND,
-                                "Experience not found"
-                        ));
+                .orElseThrow(() -> new ExperienceNotFoundException(id));
     }
 
     public Experience create(CreateExperienceRequest request) {
